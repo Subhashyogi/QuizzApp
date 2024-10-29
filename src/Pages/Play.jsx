@@ -47,14 +47,14 @@ const Play = () => {
                             </div>
                         </>
                         :
-                        <div>
+                        <div className='p-3'>
                             Total = {result.total}
                             <hr />
                             Marks = {result.marks}
                             <hr />
                             <button onClick={reset}
                             type="submit"
-                            className="w-full text-white translate-x-1 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         >
                             <Link
                                 to="/Play"
@@ -101,7 +101,7 @@ const Cart = ({ question, options, current, userAnswer, answer }) => {
                                     setAns(i + 1);
                                     userAnswer(i + 1);
                                 }}
-                                    className={`${ans === (i + 1) ? 'bg-slate-400 rounded text-gray-700 uppercase dark:text-gray-400 font-bold' : ''} text-2xl p-2 cursor-pointer text-white`}>
+                                    className={`${ans === (i + 1) ? 'bg-slate-400 rounded text-white uppercase dark:text-white font-bold' : ''} text-2xl p-2 cursor-pointer text-white`}>
                                     {i + 1}) {op}
                                 </div>
                             );
