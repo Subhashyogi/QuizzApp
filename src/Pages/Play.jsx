@@ -93,7 +93,7 @@ const Cart = ({ question, options, current, userAnswer, answer }) => {
         <div className='shadow'>
             <div className='p-2'>                                           
                                                                      {/* question */}
-                <div className='text-2xl py-2 border-b rounded text-white'>{current + 1}) {question} quieston</div>
+                <div className='text-2xl py-2 border-b rounded text-white'>{current + 1}) {question}</div>
                 {
                         Array.isArray(options) && options.length > 0 && options.map((op, i) => {
                             return (
