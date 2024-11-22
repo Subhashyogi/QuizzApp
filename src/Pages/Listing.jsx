@@ -32,9 +32,6 @@ const Listing = () => {
                         }
                     )
                 }
-
-                console.log(arr);
-
                 setQues(arr);
             });
         }, [setQues]);
