@@ -33,12 +33,9 @@ const Listing = () => {
                         }
                     )
                 }
-<<<<<<< HEAD
 
               //  console.log(arr);
 
-=======
->>>>>>> refs/remotes/origin/main
                 setQues(arr);
             });
         }, [setQues]);
