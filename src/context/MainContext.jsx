@@ -55,7 +55,7 @@ const MainContext = (props) => {
         },
         // eslint-disable-next-line react-hooks/exhaustive-deps
         []
-    )
+    }
     useEffect(
         () => {
             if(current != 0) localStorage.setItem("current", current);
