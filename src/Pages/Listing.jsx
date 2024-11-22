@@ -13,6 +13,7 @@ import { Context } from '../context/MainContext';
 const Listing = () => {
     const { ques, setQues, getDataFromTimestamp } = useContext(Context);
 
+    
 
 
     useEffect(
@@ -33,7 +34,7 @@ const Listing = () => {
                     )
                 }
 
-                console.log(arr);
+              //  console.log(arr);
 
                 setQues(arr);
             });
@@ -77,12 +78,12 @@ const Listing = () => {
                                                     scope="row"
                                                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                                                 >
-                                                    {item.question }
+                                                    {item.question}
                                                 </th>
 
                                                 {
                                                     item.options.map(
-                                                        (op,i) => {
+                                                        (op, i) => {
                                                             return (
                                                                 <td key={i} className={`${item.correctOption == i + 1 ? 'font-bold text-white' : ''} px-6 py-4`}>{op}</td>
                                                             )

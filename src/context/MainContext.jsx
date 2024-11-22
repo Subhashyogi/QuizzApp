@@ -1,6 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from 'react';
 import { getDatabase, onValue, ref, set } from "firebase/database";
 import { stringify } from 'postcss';
@@ -36,7 +33,7 @@ const MainContext = (props) => {
                     }
                  )
                  setData(arr);
-            })
+                })
 
             const lsuser = localStorage.getItem('user');
             if(lsuser != null){
@@ -52,10 +49,7 @@ const MainContext = (props) => {
             if(lsAnswer != null){   
                 setAnswer(JSON.parse(lsAnswer))
             }
-        },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        []
-    )
+        },[])
     useEffect(
         () => {
             if(current != 0) localStorage.setItem("current", current);
