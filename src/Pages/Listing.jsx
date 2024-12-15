@@ -34,11 +34,11 @@ const Listing = () => {
                     )
                 }
 
-              //  console.log(arr);
+              //console.log(arr);
 
                 setQues(arr);
             });
-        }, [setQues]);
+        }, []);
 
     return (
         <>
