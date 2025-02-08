@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import Header from "../components/Header";
 import axios from "axios";
 import { Context } from "../context/Maincontext";
-// const OPENAI_API_KEY = process.env.REACT_APP_API_KEY;
+
 
 export default function QuizCreateForm() {
     const { openToast, fecthQuestionHandler } = useContext(Context);
