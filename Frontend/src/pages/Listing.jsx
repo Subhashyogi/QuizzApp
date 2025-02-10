@@ -12,6 +12,7 @@ const Listing = () => {
     const [editedOptions, setEditedOptions] = useState([]);
     const [editedQuestion, setEditedQuestion] = useState("");
     const [editedAnswer, setEditedAnswer] = useState("");
+    const [id, setId] = useState("");
 
     const handleEditClick = (data) => {
         console.log(data);
@@ -21,11 +22,12 @@ const Listing = () => {
     
     };
 
-    const handleSave = async (editedQuestion, editedAnswer,editedOptions, list) => {
+    const handleSave = async (editedQuestion, editedAnswer,editedOptions, id) => {
         setToggle(false);
-        console.log(list);
+        console.log(id);
         console.log(editedQuestion);
         console.log(editedAnswer);
+        console.log(editedOptions);
         
         // axios.put('http://localhost:5000/Question/update/' + data._id)
         axios.put(`http://localhost:5000/Question/update/${id}`, {
@@ -123,11 +125,13 @@ const Listing = () => {
                                     {
                                         list.map(
                                             (list, index) => {
-                                                
-                                                        const updatedOptions = [...list.option];
-                                                        updatedOptions[list.correctOption - 1] = e.target.value;  // Update specific option
-                                                        setEditedOptions(updatedOptions);
-                                                    
+                                                if(list._id === id) {
+                                                    const updatedOptions = [...list.option];
+                                                    // console.log(updatedOptions);
+                                                    updatedOptions[list.correctOption - 1] = e.target.value;  // Update specific option
+                                                    setEditedOptions(updatedOptions);
+                                                }
+                                                       
                                             }
                                         )
                                     } 
@@ -145,13 +149,9 @@ const Listing = () => {
                             
                             onClick={
                                 () => {
-                                    list.map(
-                                        (list, i) => {
-                                            return (
-                                                handleSave(editedQuestion, editedAnswer, editedOptions,list._id)
-                                            )
-                                        }
-                                    )
+                                    
+                                                handleSave(editedQuestion, editedAnswer, editedOptions,id)
+                                        
                                 }
                             }
                             
@@ -206,7 +206,12 @@ const Listing = () => {
                                                 <td className="px-6 py-4 flex justify-between">
                                                     <a 
                                                         
-                                                        onClick={() => handleEditClick(list)}
+                                                        onClick={
+                                                            () => {
+                                                                handleEditClick(list)
+                                                                setId(list._id);   
+                                                            }
+                                                        }
                                                         href="#"
                                                         className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                                                     >
