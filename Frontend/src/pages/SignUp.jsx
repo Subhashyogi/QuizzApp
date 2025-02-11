@@ -22,7 +22,7 @@ const SignUp = () => {
 
         if (email != '' && password != '' && confirmPassword != '') {
             if (password === confirmPassword) {
-                axios.post(`${API_BASE_URL}/User/create`, { email, password, confirmPassword })
+                axios.post(`${API_BASE_URL}User/create`, { email, password, confirmPassword })
                     .then(
                         (success) => {
                             if (success.data.status === 1) {
