@@ -5,7 +5,7 @@ import { Context } from "../context/Maincontext";
 
 
 export default function QuizCreateForm() {
-    const { openToast, fecthQuestionHandler } = useContext(Context);
+    const { openToast, fecthQuestionHandler, API_BASE_URL } = useContext(Context);
 
     const [question, setQuestion] = useState("");
     const [options, setOptions] = useState(["", "", "", ""]);
@@ -26,7 +26,7 @@ export default function QuizCreateForm() {
 
     const SubmitHandler = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:5000/Question/create', {question, options, correctOption})
+        axios.post(`${API_BASE_URL}/Question/create`, {question, options, correctOption})
             .then(
                 (success) => {
                     if (success.data.status === 1) {

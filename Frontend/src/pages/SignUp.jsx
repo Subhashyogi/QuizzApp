@@ -7,7 +7,7 @@ import { Context } from '../context/Maincontext';
 
 
 const SignUp = () => {
-    const { openToast, loginUser } = useContext(Context);
+    const { openToast, loginUser, API_BASE_URL} = useContext(Context);
 
 
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ const SignUp = () => {
 
         if (email != '' && password != '' && confirmPassword != '') {
             if(password === confirmPassword) {
-                axios.post('http://localhost:5000/User/create', { email, password, confirmPassword })
+                axios.post(`${API_BASE_URL}/User/create`, { email, password, confirmPassword })
                     .then(
                         (success) => {
                             if (success.data.status === 1) {

@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 const Login = () => {
-    const { user,setUser, loginUser } = useContext(Context);
+    const { user, setUser, loginUser, API_BASE_URL  } = useContext(Context);
 
     const navigate = useNavigate()
 
@@ -15,7 +15,7 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        axios.get('http://localhost:5000/User')
+        axios.get(`${API_BASE_URL}/User`)
         .then(
             (success) => {
                 const userData = success.data.Users;

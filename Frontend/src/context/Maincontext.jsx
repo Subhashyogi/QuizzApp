@@ -9,7 +9,8 @@ const Maincontext = (props) => {
     const [list, setList] = useState([]);
     const [user, setUser] = useState(null);
 
-    
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 
 
@@ -19,7 +20,7 @@ const Maincontext = (props) => {
     const loginUser = (user) => {
         localStorage.setItem('user', JSON.stringify(user));
         setUser(user)
-        
+
     }
 
     const fecthQuestionHandler = () => {
@@ -49,15 +50,15 @@ const Maincontext = (props) => {
             setUser(JSON.parse(lsUser));
         }
     }
-    
 
-    
+
+
 
     useEffect(
         () => {
-           fecthQuestionHandler()
-            
-        },[]
+            fecthQuestionHandler()
+
+        }, []
     )
 
     const logout = () => {
@@ -70,11 +71,11 @@ const Maincontext = (props) => {
             type: flag,
             autoClose: 1000, // 1 second (default 5000ms)
             pauseOnHover: false,
-})
+        })
     }
 
     return (
-        <Context.Provider value={{ openToast, list, user, fecthQuestionHandler, logout,setUser, loginUser }}>
+        <Context.Provider value={{ openToast, list, user, fecthQuestionHandler, logout, setUser, loginUser, API_BASE_URL }}>
             <ToastContainer />
             {props.children}
         </Context.Provider>
