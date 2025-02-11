@@ -3,11 +3,13 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const UserRouter = require("./Routers/UsersRouters");
 const QuestionRouters = require("./Routers/QuestionRouters");
+require("dotenv").config();
+
 // require("dotenv").config();
 
 // const OPENAI_API_KEY = process.env.API_KEY;
-const DBURL =
-  "mongodb+srv://Monkey_D_Luffy:(@S1u2b3h4a5s6h7@)@quizzapp.laibk.mongodb.net/QuizzApp?retryWrites=true&w=majority&appName=quizzapp";
+const port = process.env.PORT;
+const DB = process.env.MONGO_URL;
 
 const app = express();
 app.use(cors());
@@ -17,7 +19,7 @@ app.use("/User", UserRouter);
 app.use("/Question", QuestionRouters);
 
 mongoose
-  .connect(DBURL, {
+  .connect(DB, {
     // useNewUrlParser: true,
     // useCreateIndex: true,
     // useUnifiedTopology: true,
@@ -25,8 +27,8 @@ mongoose
   })
   .then((result) => {
     console.log("Connected to MongoDB");
-    app.listen(5000, () => {
-      console.log("server started");
+    app.listen(port, () => {
+      console.log("The app is listening on port " + port);
     });
   })
   .catch((error) => {
