@@ -7,24 +7,25 @@ import { Context } from '../context/Maincontext';
 
 
 const SignUp = () => {
-    const { openToast, loginUser, API_BASE_URL} = useContext(Context);
+    const { openToast, loginUser, API_BASE_URL } = useContext(Context);
 
 
     const navigate = useNavigate();
 
     const formSumitHandler = (event) => {
+        console.log(API_BASE_URL);
+
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
         const confirmPassword = event.target.confirmPassword.value;
 
         if (email != '' && password != '' && confirmPassword != '') {
-            if(password === confirmPassword) {
+            if (password === confirmPassword) {
                 axios.post(`${API_BASE_URL}/User/create`, { email, password, confirmPassword })
                     .then(
                         (success) => {
                             if (success.data.status === 1) {
-                                event.preventDefault();
                                 openToast(success.data.msg, 'success')
                                 loginUser(success)
                                 navigate('/Playground')
