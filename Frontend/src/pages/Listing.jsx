@@ -30,7 +30,7 @@ const Listing = () => {
         console.log(editedOptions);
 
         // axios.put('http://localhost:5000/Question/update/' + data._id)
-        axios.put(`${API_BASE_URL}/Question/update/${id}`, {
+        axios.put(`${API_BASE_URL}Question/update/${id}`, {
 
             question: editedQuestion,
             correctAnswer: editedAnswer,
@@ -65,7 +65,7 @@ const Listing = () => {
 
     const deleteData = (id) => {
 
-        axios.delete(`${API_BASE_URL}/Question/delete/` + id)
+        axios.delete(`${API_BASE_URL}Question/delete/` + id)
             .then(
                 (success) => {
                     if (success.data.status === 1) {

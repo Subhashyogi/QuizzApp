@@ -26,7 +26,7 @@ export default function QuizCreateForm() {
 
     const SubmitHandler = (event) => {
         event.preventDefault();
-        axios.post(`${API_BASE_URL}/Question/create`, {question, options, correctOption})
+        axios.post(`${API_BASE_URL}Question/create`, {question, options, correctOption})
             .then(
                 (success) => {
                     if (success.data.status === 1) {
