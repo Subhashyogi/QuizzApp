@@ -10,10 +10,10 @@ const SignUp = () => {
     const { openToast, loginUser, API_BASE_URL } = useContext(Context);
 
 
+    console.log(API_BASE_URL);
     const navigate = useNavigate();
 
     const formSumitHandler = (event) => {
-        console.log(API_BASE_URL);
 
         event.preventDefault();
         const email = event.target.email.value;
