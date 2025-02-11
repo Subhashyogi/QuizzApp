@@ -8,7 +8,7 @@ require("dotenv").config();
 // require("dotenv").config();
 
 // const OPENAI_API_KEY = process.env.API_KEY;
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 const DB = process.env.MONGO_URL;
 
 const app = express();
