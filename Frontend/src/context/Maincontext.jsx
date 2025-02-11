@@ -25,7 +25,7 @@ const Maincontext = (props) => {
 
     const fecthQuestionHandler = () => {
 
-        axios.get('http://localhost:5000/Question')
+        axios.get(`${API_BASE_URL}Question`)
             .then(
                 (success) => {
                     // console.log(success.data.Questions);
