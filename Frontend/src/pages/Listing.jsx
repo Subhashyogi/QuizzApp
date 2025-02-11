@@ -87,7 +87,7 @@ const Listing = () => {
         <>
 
             <div className={`${toggle == true ? 'flex' : 'hidden'} justify-center items-center w-full h-full fixed top-0 left-0 cursor-pointer bg-[rgba(0,0,0,0.4)] backdrop-blur-sm z-[60]`}>
-                <div className='w-2/4 mx-auto rounded-md dark:bg-gray-800 shadow h-1/2'>
+                <div className='w-2/4 mx-auto rounded-md dark:bg-gray-800 shadow h-3/5'>
                     <div className='text-3xl text-white font-bold p-4 flex justify-between items-center '>
                         Update Question & Answer
                         <TiDelete onClick={() => setToggle(false)} className='cursor-pointer' />
