@@ -15,7 +15,7 @@ const Listing = () => {
     const [id, setId] = useState("");
 
     const handleEditClick = (data) => {
-        console.log(data);
+        // console.log(data);
         setToggle(true);
         setEditedQuestion(data.question);
         setEditedAnswer(data.option[data.correctOption - 1]);
@@ -24,10 +24,10 @@ const Listing = () => {
 
     const handleSave = async (editedQuestion, editedAnswer, editedOptions, id) => {
         setToggle(false);
-        console.log(id);
-        console.log(editedQuestion);
-        console.log(editedAnswer);
-        console.log(editedOptions);
+        // console.log(id);
+        // console.log(editedQuestion);
+        // console.log(editedAnswer);
+        // console.log(editedOptions);
 
         // axios.put('http://localhost:5000/Question/update/' + data._id)
         axios.put(`${API_BASE_URL}Question/update/${id}`, {
